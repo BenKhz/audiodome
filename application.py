@@ -11,7 +11,7 @@ pygame.mixer.music.play(0)
 
 pygame.event.wait()
 
-# end experimental pygame code
+
 
 while True:
     print("running application")
