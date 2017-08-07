@@ -7,7 +7,7 @@ import pygame
 pygame.init()
 pygame.mixer.init()
 
-pygame.mixer.music.load('01_A_Night_Of_Dizzy_Spells.mp3')
+pygame.mixer.music.load('01 A Night Of Dizzy Spells.mp3')
 pygame.mixer.music.play(0)
 
 pygame.event.wait()
