@@ -5,4 +5,6 @@ RUN apt-get update && apt-get install python python-pygame
 
 COPY application.py /
 
+COPY 01ANightOfDizzySpells.ogg /
+
 CMD python /application.py
