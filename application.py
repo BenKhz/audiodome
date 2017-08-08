@@ -7,7 +7,7 @@ import pygame
 pygame.init()
 pygame.mixer.pre_init(44100, 16, 2, 4096) #frequency, size, channels, buffersize
 
-pygame.mixer.music.load('01ANightOfDizzySpells.ogg')
+pygame.mixer.music.load('01ANightOfDizzySpells.wav')
 pygame.mixer.music.play(0)
 
 pygame.event.wait()
