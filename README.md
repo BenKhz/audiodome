@@ -11,5 +11,6 @@ Stream:
    Use headless VLC player to connect to an icecast? Do I need control?
 
 pip install dbus-python #dependency for vlc.ctrl 
+
 pip install vlc.ctrl #to control VLC through Dbus
 
