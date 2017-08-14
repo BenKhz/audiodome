@@ -1,4 +1,4 @@
-FROM resin/armv7hf-debian:jessie
+FROM debian:jessie
 MAINTAINER @BenKhz
 
 COPY apt-install.sh /

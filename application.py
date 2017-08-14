@@ -4,7 +4,7 @@ import time
 
 import pygame
 
-pygame.init()
+# pygame.init()
 
 pygame.mixer.music.load('01ANightOfDizzySpells.ogg')
 pygame.mixer.music.play(0)
