@@ -1,18 +1,21 @@
+import os
 import time
-
-# Start pygame music and play song in audiodome file.
-
-import pygame
-
-# pygame.init()
-
-pygame.mixer.music.load('01ANightOfDizzySpells.ogg')
-pygame.mixer.music.play(0)
-
-pygame.event.wait()
+import vlc
 
 
+# This is a string that represents the audio to be played.  If the
+# AUDIO_SRC environment variable is not set, it defaults to the song that
+# comes embedded in the docker image.
 
-while True:
-    print("running application")
+audio_to_play = os.getenv('AUDIO_SRC', './01ANightOfDizzySpells.ogg')
+
+player = vlc.MediaPlayer(audio_to_play)
+print("Playing %s" % audio_to_play)
+player.play()
+time.sleep(2)
+
+while player.is_playing():
+    print("%s is still playing..." % audio_to_play)
     time.sleep(60)
+
+print("%s is done playing!" % audio_to_play)
