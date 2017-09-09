@@ -1,3 +1,4 @@
+import base64
 import os
 import time
 import vlc
@@ -27,9 +28,15 @@ def main():
 
     print("%s is done playing!" % audio_to_play)
 
+
 def download_from_google_drive():
     return
+
+
 def place_drive_credentials(gdrive_credential_file):
+    b64_creds = os.getenv('GOOGLE_DRIVE_CREDENTIALS')
+    with open(gdrive_credential_file, 'w') as cred_file:
+        cred_file.write(base64.b64decode(b64_creds))
     return
 
 
