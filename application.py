@@ -9,6 +9,10 @@ import vlc
 
 audio_to_play = os.getenv('AUDIO_SRC', './01ANightOfDizzySpells.ogg')
 
+if os.getenv('GOOGLE_DRIVE-URL'):
+    download_from_google_drive()
+    
+
 player = vlc.MediaPlayer(audio_to_play)
 print("Playing %s" % audio_to_play)
 player.play()
