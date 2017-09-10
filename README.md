@@ -43,3 +43,7 @@ you should follow one of these use cases:
   environment variable.
 1. The Google Drive file is a zip file containing a playlist file, which
   references URLs that are supported by VLC.
+
+### Base64-encoding Google OAuth credentials
+
+`cat ./google_oauth_credentials.json | base64 `
