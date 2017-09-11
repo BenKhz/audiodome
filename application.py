@@ -76,7 +76,7 @@ def download_from_google_drive(music_path, google_creds):
                 break
 #            with zipfile.ZipFile(drop_file_location, "r") as zip_ref:
 #                zip_ref.extractall("music_path")
-            unzip_file()
+            unzip_file(drop_file_location, music_path)
 
 
 def place_drive_credentials(gdrive_credential_file):
@@ -90,7 +90,7 @@ def place_drive_credentials(gdrive_credential_file):
 
 def unzip_file(drop_file_location, music_path):
     with zipfile.ZipFile(drop_file_location, "r") as zip_ref:
-        zip_ref.extractall("music_path")
+        zip_ref.extractall(music_path)
 
 
 if __name__ == "__main__":
