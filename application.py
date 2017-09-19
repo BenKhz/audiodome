@@ -22,7 +22,8 @@ def main():
     music_path = "/data/"
 
     if os.getenv('GOOGLE_DRIVE_CREDENTIALS') is not None:
-        place_drive_credentials(gdrive_credential_file)
+        b64_creds = os.getenv('GOOGLE_DRIVE_CREDENTIALS')
+        audiodome.Utility.b64_to_file(b64_creds, gdrive_credential_file)
         storage = Storage(gdrive_credential_file)
         google_creds = storage.get()
 
@@ -77,13 +78,6 @@ def download_from_google_drive(music_path, google_creds):
 #            with zipfile.ZipFile(drop_file_location, "r") as zip_ref:
 #                zip_ref.extractall("music_path")
     unzip_file(drop_file_location, music_path)
-
-
-def place_drive_credentials(gdrive_credential_file):
-    '''Take Google API keys from env var, write them to file.'''
-    b64_creds = os.getenv('GOOGLE_DRIVE_CREDENTIALS')
-    audiodome.Utility.b64_to_file(b64_creds, gdrive_credential_file)
-    return
 
 
 def unzip_file(drop_file_location, music_path):
