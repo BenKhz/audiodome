@@ -30,3 +30,18 @@ class TestUnitUtility:
         utility_obj.b64_to_file(b64_data, drop_file_location)
         # Make sure that the just-written file contents equal the test data
         assert self.get_file_contents(drop_file_location) == expanded_data
+
+    def test_unit_utility_unzip_to_path(self):
+        # Control file
+        control_file = os.path.join(fixture_path, "unzipped.txt")
+        # Test output file location (expected, anyway)
+        test_output_file = os.path.join(fixture_path, "unzipped.txt.local")
+        # Zipfile to deflate
+        zip_infile = os.path.join(fixture_path, "tstfile.zip")
+        # Give us a Utility object to work with
+        utility_obj = audiodome.Utility
+        # Unzip the file to the fixture directory
+        utility_obj.unzip_file_to_path(zip_infile, fixture_path)
+        control_file_contents = self.get_file_contents(control_file)
+        test_extracted_contents = self.get_file_contents(test_output_file)
+        assert test_extracted_contents == control_file_contents
