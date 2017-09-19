@@ -9,7 +9,7 @@ audiodome = imp.load_module(modulename, file, pathname, description)
 fixture_path = os.path.join(modulepath, "test/fixture/")
 
 
-class TestAlertManager:
+class TestUnitUtility:
     def get_file_contents(self, file_path):
         with open(file_path, 'r') as in_file:
             contents = in_file.read()
