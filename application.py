@@ -77,12 +77,12 @@ def download_from_google_drive(music_path, google_creds):
                 break
 #            with zipfile.ZipFile(drop_file_location, "r") as zip_ref:
 #                zip_ref.extractall("music_path")
-    unzip_file(drop_file_location, music_path)
+    audiodome.Utility.unzip_file_to_path(drop_file_location, "/data")
 
 
-def unzip_file(drop_file_location, music_path):
+'''def unzip_file(drop_file_location, music_path):
     with zipfile.ZipFile(drop_file_location, "r") as zip_ref:
-        zip_ref.extractall(music_path)
+        zip_ref.extractall(music_path)'''
 
 
 if __name__ == "__main__":
