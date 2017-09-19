@@ -7,7 +7,6 @@ import httplib2
 from oauth2client.file import Storage
 from apiclient import discovery
 from apiclient import errors
-import zipfile
 # from apiclient import http
 
 
