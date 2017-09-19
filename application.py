@@ -1,4 +1,4 @@
-import base64
+import audiodome
 import os
 import sys
 import time
@@ -82,9 +82,7 @@ def download_from_google_drive(music_path, google_creds):
 def place_drive_credentials(gdrive_credential_file):
     '''Take Google API keys from env var, write them to file.'''
     b64_creds = os.getenv('GOOGLE_DRIVE_CREDENTIALS')
-    with open(gdrive_credential_file, 'w') as cred_file:
-        raw_creds = base64.b64decode(b64_creds)
-        cred_file.write(raw_creds)
+    audiodome.Utility.b64_to_file(b64_creds, gdrive_credential_file)
     return
 
 
