@@ -23,7 +23,10 @@ def main():
     if os.getenv('GOOGLE_DRIVE_CREDENTIALS') is not None:
         b64_creds = os.getenv('GOOGLE_DRIVE_CREDENTIALS')
         audiodome.Utility.b64_to_file(b64_creds, gdrive_credential_file)
+# Declared google_creds empty so storage put and get knows its real.
+        google_creds = "empty"
         storage = Storage(gdrive_credential_file)
+        storage.put(google_creds)
         google_creds = storage.get()
 
     if os.getenv('GOOGLE_FILE_ID') is not None:
