@@ -1,7 +1,8 @@
-import urllib
-
-
 class Downloader(object):
+    @classmethod
+    def url_to_file(url, file_path):
+        with open(url, 'w') as out_file:
+            out_file.write(file_path)
         '''Download a file  from URL to a path on disk.
 
         Args:
@@ -9,4 +10,6 @@ class Downloader(object):
             file_path(str): Path to local destination file.
 
         '''
-    return
+
+        # I know this isn't right, but...
+        return
