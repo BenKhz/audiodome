@@ -13,11 +13,15 @@ def main():
         drop_file_location = '/data/drop_file.zip'
         url = os.getenv('DOWNLOAD_URL')
         audiodome.Downloader.url_to_file(url, drop_file_location)
-        time.sleep(60)
         print("Download Attempting...")
+        time.sleep(120)
+
     else:
         print("Download attempt failed!")
-        time.sleep(60)
+        time.sleep(120)
+
+    audiodome.Utility.unzip_file_to_path(drop_file_location, music_path)
+    print("Attempted to unzip!")
 
     '''player = vlc.MediaPlayer(audio_to_play)
     print("Playing %s" % audio_to_play)
