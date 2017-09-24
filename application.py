@@ -19,8 +19,8 @@ def main():
 #    gdrive_credential_file = "/tmp/resin/gdrive.json"
     # This is where the music files get written to.
     music_path = "/data/"
-    '''
-    if os.getenv('GOOGLE_DRIVE_CREDENTIALS') is not None:
+# b64 encoding section collapsed line 23-50
+    '''if os.getenv('GOOGLE_DRIVE_CREDENTIALS') is not None:
         b64_creds = os.getenv('GOOGLE_DRIVE_CREDENTIALS')
         audiodome.Utility.b64_to_file(b64_creds, gdrive_credential_file)
 # Declared google_creds empty so storage put and get knows its real.
@@ -35,7 +35,8 @@ def main():
 
     if os.getenv('DOWNLOAD_URL') is not None:
         drop_file_location = '/data/drop_file.zip'
-        audiodome.Downloader(os.getenv('DOWNLOAD_URL'), drop_file_location)
+        url = os.getenv('DOWNLOAD_URL')
+        audiodome.Downloader.url_to_file(url, drop_file_location)
         audiodome.Utility.unzip_file_to_path(drop_file_location, music_path)
 
     player = vlc.MediaPlayer(audio_to_play)
