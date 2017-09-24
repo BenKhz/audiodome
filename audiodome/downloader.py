@@ -14,5 +14,4 @@ class Downloader(object):
         with open(file_path, 'wb') as out_file:
             r = requests.get(url)
             out_file.write(r.content)
-        # I know this isn't right, but...
         return
