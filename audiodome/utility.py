@@ -1,5 +1,6 @@
 import base64
 import zipfile
+from zipfile import BadZipfile
 
 
 class Utility(object):
@@ -11,5 +12,9 @@ class Utility(object):
 
     @classmethod
     def unzip_file_to_path(cls, zip_infile, out_dir):
-        with zipfile.ZipFile(zip_infile, 'r') as zip_ref:
-            zip_ref.extractall(out_dir)
+        try:
+            with zipfile.ZipFile(zip_infile, 'r') as zip_ref:
+                zip_ref.extractall(out_dir)
+                print "Zip extracted!"
+        except BadZipfile:
+            print ("Error! Stopping now!")
