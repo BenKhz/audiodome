@@ -22,6 +22,7 @@ def main():
 
     audiodome.Utility.unzip_file_to_path(drop_file_location, music_path)
     print("Attempted to unzip!")
+    time.sleep(120)
 
     '''player = vlc.MediaPlayer(audio_to_play)
     print("Playing %s" % audio_to_play)
