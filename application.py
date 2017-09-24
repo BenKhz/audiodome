@@ -4,7 +4,7 @@ import sys
 import time
 import vlc
 import httplib2
-from oauth2client.file import Storage
+# from oauth2client.file import Storage
 from apiclient import discovery
 from apiclient import errors
 # from apiclient import http
@@ -16,10 +16,10 @@ def main():
     # comes embedded in the docker image.
     audio_to_play = os.getenv('AUDIO_SRC', './01ANightOfDizzySpells.ogg')
     # This is the file we will write the Google API credentials into.
-    gdrive_credential_file = "/tmp/resin/gdrive.json"
+#    gdrive_credential_file = "/tmp/resin/gdrive.json"
     # This is where the music files get written to.
     music_path = "/data/"
-
+    '''
     if os.getenv('GOOGLE_DRIVE_CREDENTIALS') is not None:
         b64_creds = os.getenv('GOOGLE_DRIVE_CREDENTIALS')
         audiodome.Utility.b64_to_file(b64_creds, gdrive_credential_file)
@@ -31,6 +31,12 @@ def main():
 
     if os.getenv('GOOGLE_FILE_ID') is not None:
         download_from_google_drive(music_path, google_creds)
+    '''
+
+    if os.getenv('DOWNLOAD_URL') is not None:
+        drop_file_location = '/data/drop_file.zip'
+        audiodome.Downloader(os.getenv('DOWNLOAD_URL'), drop_file_location)
+        audiodome.Utility.unzip_file_to_path(drop_file_location, music_path)
 
     player = vlc.MediaPlayer(audio_to_play)
     print("Playing %s" % audio_to_play)
@@ -79,12 +85,7 @@ def download_from_google_drive(music_path, google_creds):
                 break
 #            with zipfile.ZipFile(drop_file_location, "r") as zip_ref:
 #                zip_ref.extractall("music_path")
-    audiodome.Utility.unzip_file_to_path(drop_file_location, "/data")
-
-
-'''def unzip_file(drop_file_location, music_path):
-    with zipfile.ZipFile(drop_file_location, "r") as zip_ref:
-        zip_ref.extractall(music_path)'''
+        audiodome.Utility.unzip_file_to_path(drop_file_location, "/data")
 
 
 if __name__ == "__main__":
