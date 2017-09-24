@@ -37,10 +37,12 @@ def main():
         drop_file_location = '/data/drop_file.zip'
         url = os.getenv('DOWNLOAD_URL')
         audiodome.Downloader.url_to_file(url, drop_file_location)
-        audiodome.Utility.unzip_file_to_path(drop_file_location, music_path)
-
-    else:
-        print("Error, yo! We stopping so you can bash in and check stuff.")
+        if os.path.exists(drop_file_location):
+            audiodome.Utility.unzip_file_to_path(drop_file_location,
+                                                 music_path)
+        else:
+            os.wait(30)
+            print("Waiting for download to finish")
 
     player = vlc.MediaPlayer(audio_to_play)
     print("Playing %s" % audio_to_play)
