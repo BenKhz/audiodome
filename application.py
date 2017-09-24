@@ -39,6 +39,9 @@ def main():
         audiodome.Downloader.url_to_file(url, drop_file_location)
         audiodome.Utility.unzip_file_to_path(drop_file_location, music_path)
 
+    else:
+        print("Error, yo! We stopping so you can bash in and check stuff.")
+
     player = vlc.MediaPlayer(audio_to_play)
     print("Playing %s" % audio_to_play)
     player.play()
