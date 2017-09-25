@@ -20,7 +20,9 @@ class Utility(object):
 
     @classmethod
     def vlc_play_file(cls, audio_to_play):
-        player = vlc.MediaPlayer(audio_to_play)
+        player = vlc.MediaPlayer()
+        media = vlc.media_new(audio_to_play)
+        player.set(media)
         print("Playing %s" % audio_to_play)
         player.play()
         time.sleep(2)
