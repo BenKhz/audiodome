@@ -1,4 +1,3 @@
 .cache
 *.pyc
 *.local
-application_scratch.py
