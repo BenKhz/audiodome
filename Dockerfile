@@ -16,4 +16,4 @@ COPY 01ANightOfDizzySpells.ogg /
 
 WORKDIR /app
 
-CMD python application.py
+CMD python application_slim.py
