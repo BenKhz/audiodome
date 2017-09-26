@@ -4,7 +4,7 @@ import os
 
 def main():
 
-    audio_to_play = os.getenv('AUDIO_SRC', './01ANightOfDizzySpells.ogg')
+    local_audio = './01ANightOfDizzySpells.ogg'
     music_path = "/data/"
     if os.getenv('DOWNLOAD_URL') is not None:
         drop_file_location = '/data/drop_file.zip'
@@ -13,13 +13,11 @@ def main():
         if os.path.exists(drop_file_location):
             audiodome.Utility.unzip_file_to_path(drop_file_location,
                                                  music_path)
-        else:
-            os.wait(30)
-            print("Waiting for download to finish.")
+            remote_audio = "./data/playlist.txt".list
+            audiodome.Utility.vlc_play_file(remote_audio)
     else:
-        print("Environment Var is NONE. Playing local file...")
-
-    audiodome.Utility.vlc_play_file(audio_to_play)
+        print("No download URL. Playing local file...")
+        audiodome.Utility.vlc_play_file(local_audio)
 
 
 if __name__ == "__main__":
