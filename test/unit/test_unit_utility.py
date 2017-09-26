@@ -45,3 +45,11 @@ class TestUnitUtility:
         control_file_contents = self.get_file_contents(control_file)
         test_extracted_contents = self.get_file_contents(test_output_file)
         assert test_extracted_contents == control_file_contents
+
+    def test_playlist_generator(self):
+        # Control list
+        control_list = ("04 All of Us.mp3", "05 Come and Find Me.mp3",
+                                            "06 Searching.mp3")
+        test_env_var_file = os.path.join(fixture_path, "tst_playlist.txt")
+        tested_list = test_env_var_file.list
+        assert control_list == tested_list
