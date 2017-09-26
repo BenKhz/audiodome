@@ -13,7 +13,8 @@ def main():
         if os.path.exists(drop_file_location):
             audiodome.Utility.unzip_file_to_path(drop_file_location,
                                                  music_path)
-            remote_audio = "./data/playlist.txt".list
+            remote_audio_file = open("./data/playlist.txt")
+            remote_audio = remote_audio_file.read_lines()
             audiodome.Utility.vlc_play_file(remote_audio)
     else:
         print("No download URL. Playing local file...")
