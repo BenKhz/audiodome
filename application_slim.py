@@ -16,7 +16,7 @@ def main():
                                                  music_path)
             print("30 seconds before attempting to build playlist.")
             time.sleep(30)
-            remote_audio_file = open("data/playlist.txt")
+            remote_audio_file = open("../data/playlist.txt")
             remote_audio = remote_audio_file.read_lines()
             audiodome.Utility.vlc_play_file(remote_audio)
     else:
