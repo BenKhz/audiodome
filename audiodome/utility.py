@@ -2,6 +2,7 @@ import base64
 import zipfile
 import vlc
 import time
+import os
 
 
 class Utility(object):
@@ -21,7 +22,7 @@ class Utility(object):
     @classmethod
     def vlc_play_file(cls, audio_to_play):
         for song in audio_to_play:
-            player = vlc.MediaPlayer(song)
+            player = vlc.MediaPlayer(os.join("../data/music", song))
             print("Playing %s" % song)
             player.play()
             time.sleep(2)
