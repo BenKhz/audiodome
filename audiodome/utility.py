@@ -30,6 +30,6 @@ class Utility(object):
 
             while player.is_playing():
                 print("%s is still playing..." % song)
-                time.sleep(60)
-
-        print("%s is done playing!" % song)
+                time.sleep(3)
+            else:
+                print("%s is done playing!" % song)
