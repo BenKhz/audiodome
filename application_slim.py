@@ -13,7 +13,7 @@ def main():
         if os.path.exists(drop_file_location):
             audiodome.Utility.unzip_file_to_path(drop_file_location,
                                                  music_path)
-
+            audio_to_play = os.listdir("../data/music/")
     else:
         print("No download URL. Playing local file...")
     audiodome.Utility.vlc_play_file(audio_to_play)
