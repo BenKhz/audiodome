@@ -3,7 +3,7 @@ import zipfile
 import vlc
 import time
 import os
-
+import libvlc
 
 class Utility(object):
     @classmethod
@@ -21,11 +21,14 @@ class Utility(object):
 
     @classmethod
     def vlc_play_file(cls, audio_to_play):
+
         for song in audio_to_play:
             player = vlc.MediaPlayer(os.path.join("../data/music/", song))
             print("Playing %s" % song)
             player.play()
-            time.sleep(2)
+            time.sleep(
+                    vlc.libvlc_media_get_duration(song))
+            # player.get_state() used to find
 
         while player.is_playing():
             print("%s is still playing..." % song)
