@@ -27,10 +27,8 @@ class Utility(object):
             print("Playing %s" % song)
             player.play()
             while player.get_state() == 'State.playing':
-                time.sleep(2)
+                time.sleep(3)
                 player.get_state()
-            else:
-                break
             if player.is_playing():
                 print("%s is still playing..." % song)
                 time.sleep(3)
