@@ -22,7 +22,7 @@ class Utility(object):
     @classmethod
     def vlc_play_file(cls, audio_to_play):
         for song in audio_to_play:
-            player = vlc.MediaPlayer(os.pat.join("../data/music/", song))
+            player = vlc.MediaPlayer(os.path.join("../data/music/", song))
             print("Playing %s" % song)
             player.play()
             time.sleep(2)
