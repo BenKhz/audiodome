@@ -26,8 +26,7 @@ class Utility(object):
             player = vlc.MediaPlayer(os.path.join("../data/music/", song))
             print("Playing %s" % song)
             player.play()
-            time.sleep(
-                    vlc.libvlc_media_get_duration(song))
+            time.sleep(60)
             # player.get_state() used to find
 
         while player.is_playing():
