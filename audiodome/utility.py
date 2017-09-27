@@ -20,14 +20,14 @@ class Utility(object):
 
     @classmethod
     def vlc_play_file(cls, audio_to_play):
-        for songs in audio_to_play:
-            player = vlc.MediaPlayer(audio_to_play)
-            print("Playing %s" % audio_to_play)
+        for song in audio_to_play:
+            player = vlc.MediaPlayer(song)
+            print("Playing %s" % song)
             player.play()
             time.sleep(2)
 
         while player.is_playing():
-            print("%s is still playing..." % audio_to_play)
+            print("%s is still playing..." % song)
             time.sleep(60)
 
-        print("%s is done playing!" % audio_to_play)
+        print("%s is done playing!" % song)
