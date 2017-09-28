@@ -23,7 +23,7 @@ class Utility(object):
     def vlc_play_file(cls, audio_to_play):
 
         def check_if_playing():
-            if player.is_playing() == 1:
+            if player.is_playing(player) == 1:
                 print("Troubleshoot marker: Staying in IF clause.")
                 print("%s is still playing..." % song)
                 time.sleep(3)
@@ -35,9 +35,9 @@ class Utility(object):
 
         for song in audio_to_play:
             player = vlc.MediaPlayer(os.path.join("../data/music/", song))
-            print(player.is_playing())
+            print(player.is_playing(player))
             player.play()
-            print(player.is_playing())
+            print(player.is_playing(player))
             print("Playing %s" % song)
             check_if_playing()
 
