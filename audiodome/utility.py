@@ -23,7 +23,7 @@ class Utility(object):
     def vlc_play_file(cls, audio_to_play):
 
         def check_if_playing():
-            if player.is_playing() == "TRUE":
+            if player.is_playing() == 1:
                 print("Troubleshoot marker: Staying in IF clause.")
                 print("%s is still playing..." % song)
                 time.sleep(3)
