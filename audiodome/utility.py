@@ -23,19 +23,21 @@ class Utility(object):
     def vlc_play_file(cls, audio_to_play):
 
         def check_if_playing():
-            if player.get_state() == "Playing":
+            if player.is_playing() == "TRUE":
+                print("Troubleshoot marker: Staying in IF clause.")
                 print("%s is still playing..." % song)
                 time.sleep(3)
                 check_if_playing()
             else:
-                print("Check says player.get_state()!= Playing ")
+                print("Troubleshoot marker: Went to Else Clause ")
                 print("%s is done playing!" % song)
                 pass
 
         for song in audio_to_play:
             player = vlc.MediaPlayer(os.path.join("../data/music/", song))
-            print("Playing %s" % song)
+            print("Whats the player status before play:" + player.is_playing())
             player.play()
+            print("Playing %s" % song)
             check_if_playing()
 
         print("%s is done playing!" % song)
