@@ -35,7 +35,7 @@ class Utility(object):
 
         for song in audio_to_play:
             player = vlc.MediaPlayer(os.path.join("../data/music/", song))
-            print("Whats the player status before play:" + player.is_playing())
+            print(player.is_playing())
             player.play()
             print("Playing %s" % song)
             check_if_playing()
