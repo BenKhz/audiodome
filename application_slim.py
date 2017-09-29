@@ -18,6 +18,7 @@ def main():
     else:
         print("No download URL. Playing local file...")
     audiodome.Utility.vlc_play_file(audio_to_play)
+    print("All Audio in List is done playing! Take her from the top, boys!")
 
 
 if __name__ == "__main__":
