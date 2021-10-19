@@ -22,6 +22,13 @@ class Utility(object):
     @classmethod
     def vlc_play_file(cls, audio_to_play):
 
+        player = vlc.MediaPlayer()
+        media = vlc.media_new(audio_to_play)
+        player.set(media)
+        print("Playing %s" % audio_to_play)
+        player.play()
+
+
         def check_if_playing():
             if player.is_playing() == 1:
                 print("%s is still playing..." % song)
