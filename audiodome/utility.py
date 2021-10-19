@@ -2,6 +2,7 @@ import base64
 import zipfile
 import vlc
 import time
+import os
 
 
 class Utility(object):
@@ -20,15 +21,28 @@ class Utility(object):
 
     @classmethod
     def vlc_play_file(cls, audio_to_play):
+
         player = vlc.MediaPlayer()
         media = vlc.media_new(audio_to_play)
         player.set(media)
         print("Playing %s" % audio_to_play)
         player.play()
-        time.sleep(2)
 
-        while player.is_playing():
-            print("%s is still playing..." % audio_to_play)
-            time.sleep(60)
 
-        print("%s is done playing!" % audio_to_play)
+        def check_if_playing():
+            if player.is_playing() == 1:
+                print("%s is still playing..." % song)
+                time.sleep(3)
+                check_if_playing()
+            else:
+                print("%s is done playing!" % song)
+                pass
+
+        for song in audio_to_play:
+            player = vlc.MediaPlayer(os.path.join("../data/music/", song))
+            player.play()
+            print("Playing %s" % song)
+            time.sleep(1)
+            check_if_playing()
+
+        print("All Audio in List is done playing!")
